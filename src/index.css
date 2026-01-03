@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* Custom styles for Virtual Chemistry Lab */
+:root {
+  --color-primary: #4fc3f7;
+  --color-secondary: #7c4dff;
+  --color-background: #1a1a2e;
+  --color-surface: #16213e;
+  --color-accent: #00bfa5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+canvas {
+  touch-action: none;
+}
+
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-background);
+  color: white;
+}
+
+/* Glass effect for UI panels */
+.glass-panel {
+  background: rgba(22, 33, 62, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+  color: #1a1a2e;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 195, 247, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Volume indicator animation */
+@keyframes liquidFill {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.liquid-fill {
+  animation: liquidFill 0.5s ease-out;
+  transform-origin: bottom;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  .mobile-shelf .glass-panel {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .mobile-shelf h3 {
+    display: none;
+  }
+
+  .mobile-steps .glass-panel {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    max-height: none !important;
+  }
+
+  /* Compact buttons for mobile */
+  .mobile-shelf button,
+  .mobile-steps button {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Better touch targets */
+  button {
+    min-height: 44px;
+  }
+}
